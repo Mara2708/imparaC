@@ -1,16 +1,47 @@
-1. Avviare MongoDB 
-Cmd ammministratore; net start MongoDB
+# ImparaC — Educational Web App
 
-2. Importare il database (da backup_mongo o JSON) (ANCHE SE IN REALTà SE è INSTALLATO MONGODB NON C'è NE BISOGNO PERCHE LO CREA AUTOMATICAMENTE IL DB)
-Aprire; MongoDB; Connettersi a mongodb://localhost:27017
-Creare un database chiamato imparaC_db;
-Creare due collezioni utenti e risultati;
-In ciascuna collezione cliccare su Import Data;
-Importare utenti.json e risultati.json da questa cartella;
+This is a small educational web application built with **Flask** and **MongoDB**.  
+It allows students to learn basic programming concepts in C through quizzes, theory sections, and progress tracking.
 
-3. Eseguire "python app.py"
-Aprire il terminale nella cartella progetto 
-cd Desktop, cd imparaC, python app.py
+---
 
-4. Aprire http://127.0.0.1:5000 nel browser
-copiare dal terminale e incollare nel browser
+## Features
+- User profile creation and saving  
+- Quizzes divided into three levels: beginner, intermediate, advanced  
+- Automatic correction and score calculation  
+- Results and errors stored in MongoDB  
+- Export results as CSV  
+- Simple and responsive user interface  
+
+---
+
+## Technologies Used
+- **Python (Flask)** for the web application  
+- **HTML / CSS** for the frontend  
+- **MongoDB** for data storage  
+
+---
+
+## How to Run the Project
+
+1. **Install dependencies**
+   ```bash
+   pip install flask pymongo
+
+2. Run the server 
+   python app.py 
+
+3. Open th web app
+ Open your browser and go to:
+ http://127.0.0.1:5000
+
+4. Database Structure
+ MongoDB automatically creates two collections:
+ utenti: stores user names and course information
+ risultati: stores quiz scores and error counts
+ You can view the collections using MongoDB Compass or the shell.
+
+Author 
+IGNUTI MARA 0124002637
+Department of Computer Science
+University Project — Educational Web App (Flask + MongoDB)
