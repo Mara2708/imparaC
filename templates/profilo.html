@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Profilo Studente - Impara C{% endblock %}
+
+{% block content %}
+<section id="profilo" class="section">
+  <div class="card">
+    <h2>👩‍🎓 Profilo Studente</h2>
+    <p>Inserisci le tue informazioni per salvare i progressi e personalizzare il corso.</p>
+
+    <form action="{{ url_for('profilo') }}" method="POST" class="form-profilo">
+      <label class="label">Nome e Cognome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+
+      <label class="label">Corso di laurea:</label>
+      <input type="text" id="corso" name="corso" placeholder="Esempio: Ingegneria Informatica">
+
+      <div class="row">
+        <button type="submit" class="secondary">Salva Profilo</button>
+        <a href="{{ url_for('cancella_profilo') }}" class="danger">Cancella Profilo</a>
+      </div>
+    </form>
+  </div>
+
+  {% if utente %}
+  <div class="card mini">
+    <h3>Profilo salvato:</h3>
+    <p><strong>Nome:</strong> {{ utente.nome }}</p>
+    <p><strong>Corso:</strong> {{ utente.corso }}</p>
+
+    <form action="{{ url_for('cancella_profilo') }}" method="POST">
+      <button type="submit" class="btn danger">Cancella Profilo</button>
+    </form>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz a Livelli - Impara C{% endblock %}
+
+{% block content %}
+<section class="livelli section">
+  <div class="card">
+    <h2>🎯 Scegli il tuo livello</h2>
+    <p>
+      Ogni livello contiene quiz di difficoltà crescente.  
+      Completa il livello precedente per sbloccare quello successivo.
+    </p>
+  </div>
+
+  {% if not session.get('utente') %}
+    <p class="avviso">⚠️ Devi prima creare il tuo profilo per poter iniziare i quiz.</p>
+  {% else %}
+
+  <div class="card">
+    <h3>Livelli disponibili:</h3>
+    <form action="{{ url_for('quiz') }}" method="post">
+
+      <div class="level-block">
+        <h4>👶 Livello Principiante</h4>
+        <p>Concetti base del C: stampa, input/output, variabili.</p>
+        <button type="submit" name="livello" value="principiante" class="btn">Inizia</button>
+      </div>
+
+      <div class="level-block">
+        <h4>🧠 Livello Intermedio</h4>
+        <p>Cicli, array, funzioni e logica strutturata.</p>
+        {% if livelli_sbloccati.intermedio %}
+          <button type="submit" name="livello" value="intermedio" class="btn">Inizia</button>
+        {% else %}
+          <button class="btn" disabled>🔒 Bloccato</button>
+        {% endif %}
+      </div>
+
+      <div class="level-block">
+        <h4>🚀 Livello Avanzato</h4>
+        <p>Puntatori, memoria dinamica, logica avanzata.</p>
+        {% if livelli_sbloccati.avanzato %}
+          <button type="submit" name="livello" value="avanzato" class="btn">Inizia</button>
+        {% else %}
+          <button class="btn" disabled>🔒 Bloccato</button>
+        {% endif %}
+      </div>
+
+    </form>
+  </div>
+
+  {% endif %}  {# ← questo chiude l'if iniziale #}
+
+  <div class="row-buttons" style="overflow: hidden; margin-top: 20px;">
+    <a href="{{ url_for('home') }}" class="btn btn-alt"><button class="primary" style="float: left;">🏠 Torna alla Home</button></a>
+    <a href="{{ url_for('profilo') }}" class="btn"><button class="primary" style="float: right;">👤 Vai al Profilo</button></a>
+  </div>
+</section>
+{% endblock %}

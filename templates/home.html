@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Impara il linguaggio C{% endblock %}
+
+{% block content %}
+<section id="home" class="section">
+<div class="card fade-in">
+  <h2>Benvenuto nel corso “Impara il linguaggio C”!</h2>
+  <p>
+    In questo sito potrai:
+  </p>
+  <ul>
+    <li>📘 Studiare la teoria con esempi pratici.</li>
+    <li>🧩 Allenarti con quiz interattivi su più livelli di difficoltà.</li>
+    <li>🎯 Salvare i tuoi progressi grazie al profilo personale.</li>
+  </ul>
+
+  <div class="row">
+    <a href="{{ url_for('teoria') }}" class="primary">Vai alla teoria</a>
+    <a href="{{ url_for('livelli') }}" class="secondary">Inizia i quiz</a>
+  </div>
+  </div>
+</section>
+{% endblock %}

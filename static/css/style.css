@@ -1,0 +1,121 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg: #fbfdff;
+  --card: #ffffff;
+  --accent: #0a66c2;       /* blu professionale */
+  --muted: #6b7280;
+  --danger: #d04545;
+  --success: #198754;
+  --radius: 10px;
+  --container: 1000px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: light;
+  color: #0f172a;
+}
+
+body {
+  background: linear-gradient(180deg, #f4f7fb, var(--bg));
+  min-height: 100vh;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 48px;
+}
+
+.container { max-width: var(--container); margin: 18px auto; padding: 0 16px; }
+
+/* HEADER */
+.header { background: transparent; padding: 14px 0; }
+.header-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.brand { display:flex; align-items:center; gap:12px; }
+.brand h1 { font-size: 1.2rem; }
+.avatar { width:56px; height:56px; border-radius:50%; background: linear-gradient(135deg,#e6f0ff,#eef6ff); border:1px solid rgba(10,102,194,0.08); }
+
+/* NAV */
+.nav { display:flex; gap:8px; }
+.nav-btn { background: transparent; border: 1px solid transparent; padding:8px 12px; border-radius:8px; cursor:pointer; }
+.nav-btn:hover { background: rgba(10,102,194,0.06); border-color: rgba(10,102,194,0.12); }
+
+/* MAIN & CARDS */
+.main { margin-top: 12px; display:flex; flex-direction:column; gap:12px; }
+.card { background: var(--card); border-radius: var(--radius); padding:16px; box-shadow: 0 6px 18px rgba(12,28,52,0.06); }
+.mini { max-width: 720px; }
+
+.section.hidden { display:none; }
+
+/* Buttons */
+button { font: inherit; }
+.primary { background: var(--accent); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+.secondary { background: transparent; border: 1px solid rgba(15,23,42,0.06); padding:8px 12px; border-radius:8px; cursor:pointer; }
+.danger { background: transparent; color: var(--danger); border: 1px solid rgba(208,69,69,0.12); padding:8px 12px; border-radius:8px; cursor:pointer; }
+
+/* typography */
+.muted { color: var(--muted); font-size: 0.95rem; }
+.small { font-size: 0.85rem; }
+
+/* blocks */
+.theory-block, .exercise { margin-top: 10px; padding:12px; border-radius:8px; background: linear-gradient(180deg, rgba(10,102,194,0.03), transparent); }
+pre { background:#0b1220; color:#dbeafe; padding:12px; border-radius:8px; overflow:auto; font-family: monospace; font-size:0.9rem; }
+
+/* forms */
+.label { display:block; margin-top:10px; }
+input[type="text"], textarea { width:100%; padding:8px 10px; margin-top:6px; border-radius:8px; border:1px solid rgba(15,23,42,0.06); }
+
+/* layout helpers */
+.row { display:flex; gap:8px; margin-top:12px; align-items:center; flex-wrap:wrap; }
+.progress-line { display:flex; justify-content:space-between; gap:12px; margin: 8px 0 12px 0; }
+
+/* quiz area */
+.quiz-area { min-height: 140px; padding:12px; border-radius:8px; border:1px dashed rgba(10,102,194,0.08); background: linear-gradient(180deg, rgba(10,102,194,0.02), transparent); }
+
+/* footer */
+.footer { position: fixed; bottom: 12px; left: 0; right: 0; pointer-events: none; }
+.footer-inner { max-width: var(--container); margin: 0 auto; padding: 8px 16px; display:flex; justify-content:space-between; align-items:center; pointer-events: auto; background: rgba(255,255,255,0.95); border-radius: 12px; box-shadow: 0 8px 22px rgba(11,22,44,0.06); }
+
+/* responsive */
+@media (max-width:720px) {
+  .header-inner { flex-direction: column; align-items:flex-start; gap:10px; }
+  .nav { width:100%; overflow:auto; }
+  .footer { position: static; margin-top: 12px; }
+}
+
+
+/* --- Barra di progresso del quiz --- */
+.progress-container {
+  width: 100%;
+  height: 15px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #0073e6;
+  transition: width 0.5s ease;
+}
+
+/* --- SELEZIONE LIVELLI --- */
+.level-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.level-btn:hover:not(:disabled) {
+  background: #0059b3;
+  transform: scale(1.05);
+}
+
+.level-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}

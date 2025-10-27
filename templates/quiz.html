@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz — Impara C{% endblock %}
+
+{% block content %}
+<section id="quiz" class="section">
+  <h2>🧩 Quiz— {{ livello_nome|capitalize }}</h2>
+
+  <p>
+    Metti alla prova le tue conoscenze!  
+    Seleziona un livello di difficoltà per iniziare.  
+    I tuoi risultati verranno salvati nel database MongoDB.
+  </p>
+
+
+{% if messaggio %}
+<div class="feedback">
+  <p style="font-weight:bold; color: {% if 'Corretto' in messaggio %}green{% else %}red{% endif %};">
+    {{ messaggio }}
+  </p>
+</div>
+{% endif %}
+
+
+  <!-- FORM SELEZIONE LIVELLO -->
+  {% if not livello_nome %}
+  <form action="{{ url_for('quiz') }}" method="POST" class="card mini">
+    <label for="livello"><strong>Seleziona livello:</strong></label>
+    <select name="livello" id="livello" required>
+      <option value="">-- Scegli un livello --</option>
+      <option value="principiante">👶 Principiante</option>
+      <option value="intermedio">🧠 Intermedio</option>
+      <option value="avanzato">🚀 Avanzato</option>
+    </select>
+
+    <button type="submit" class="primary" style="margin-top:10px;">Inizia il quiz</button>
+  </form>
+  {% endif %}
+
+  <!-- BLOCCO DOMANDA -->
+  {% if domanda %}
+  <div class="card quiz-block">
+    <h3>{{ domanda.testo }}</h3>
+
+<p class="info">📘 Livello: <strong>{{ livello_nome|capitalize }}</strong> — Domanda n° {{ domanda.id }}</p>
+
+    <form action="{{ url_for('rispondi') }}" method="POST">
+      {% if domanda.tipo == 'mcq' %}
+        {% for opzione in domanda.opzioni %}
+          <label>
+            <input type="radio" name="risposta" value="{{ loop.index0 }}" required>
+            {{ opzione }}
+          </label><br>
+        {% endfor %}
+      <input type="hidden" name="id_domanda" value="{{ domanda.id }}">
+      <button type="submit" class="primary">Invia risposta</button>
+    </form>
+    {% elif domanda.tipo == 'testo' %}
+    <form action="{{ url_for('rispondi') }}" method="POST">
+      <input type="text" name="risposta" placeholder="Scrivi la tua risposta..." required>
+      <input type="hidden" name="id_domanda" value="{{ domanda.id }}">
+      <button type="submit" class="primary">Invia risposta</button>
+    </form>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- RISULTATO FINALE -->
+  {% if risultato %}
+  <div class="card mini">
+    <h3>Risultato</h3>
+    <p>{{ risultato }}</p>
+    <a href="{{ url_for('quiz') }}" class="secondary">Torna al quiz</a>
+  </div>
+  {% endif %}
+
+  <!-- BOTTONI FINALI -->
+  <div class="row-buttons">
+    <a href="{{ url_for('livelli') }}" class="btn">⬅ Torna ai livelli</a>
+    <a href="{{ url_for('home') }}" class="btn btn-alt">🏠 Torna alla Home</a>
+  </div>
+</section>
+{% endblock %}

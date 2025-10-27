@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "68ff915d3245e99682852bf1"
+  },
+  "nome": "Gianluca Saffelli",
+  "punteggio": 100,
+  "errori": 3
+},
+{
+  "_id": {
+    "$oid": "68ff96da3245e99682852bf3"
+  },
+  "nome": "Mara Ignuti",
+  "punteggio": 120,
+  "errori": 1
+},
+{
+  "_id": {
+    "$oid": "68ff97b63245e99682852bf5"
+  },
+  "nome": "Giovanna Lanzillo",
+  "punteggio": 120,
+  "errori": 1
+}]

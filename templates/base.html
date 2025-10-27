@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Impara C{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+       <header class="header">
+       <div class="container header-inner">
+       <div class="brand">
+        <img src="https://i.etsystatic.com/40533556/r/il/11cc06/6233144364/il_fullxfull.6233144364_918l.jpg" alt="Logo C" class="avatar" />
+        <div>
+        <h1 align="center">💻 Hello C!</h1>
+        </div>
+        </div>
+        <nav class="nav" aria-label="Menu principale">
+            <a class="nav-btn" href="{{ url_for('home') }}">Home</a>
+            <a class="nav-btn" href="{{ url_for('teoria') }}">Teoria</a>
+            <a class="nav-btn" href="{{ url_for('livelli') }}">Livelli</a>
+            <a class="nav-btn" href="{{ url_for('quiz') }}">Quiz</a>
+            <a class="nav-btn" href="{{ url_for('profilo') }}">Profilo</a>
+            <a class="nav-btn" href="{{ url_for('risultati_finali') }}">Risultati</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+    <div class="container footer-inner">
+    <div>
+        <p>Realizzato da: {{ session.utente.nome if session.utente else "[Tuo Nome]" }} — Corso di Informatica</p>
+    
+    </div>
+    </div>
+    </footer>
+
+</body>
+</html>

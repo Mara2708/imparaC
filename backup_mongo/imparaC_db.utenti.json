@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "68ff91293245e99682852bf0"
+  },
+  "nome": "Gianluca Saffelli",
+  "corso": "Ingegneria Informatica"
+},
+{
+  "_id": {
+    "$oid": "68ff96cf3245e99682852bf2"
+  },
+  "nome": "Mara Ignuti",
+  "corso": "Informatica"
+},
+{
+  "_id": {
+    "$oid": "68ff97a93245e99682852bf4"
+  },
+  "nome": "Giovanna Lanzillo",
+  "corso": "Informatica"
+}]

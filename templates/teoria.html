@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Teoria — Impara C passo per passo</h2>
+  <p>Ogni argomento è spiegato in modo chiaro, con esempi di codice per aiutarti a comprendere meglio.</p>
+</div>
+
+<section id="theory">
+<div class="card">
+  <h3>1. Introduzione al linguaggio C</h3>
+<p>
+In questa sezione troverai i concetti essenziali per comprendere e scrivere programmi in C.  
+Ogni argomento è accompagnato da un piccolo esempio di codice per facilitare la comprensione.
+La programmazione in C è un'attività fondamentale che richiede la comprensione della sintassi, della struttura e del ciclo di vita di un programma. Il C è un linguaggio procedurale, molto utilizzato per lo sviluppo di sistemi operativi, software embedded e altre applicazioni che richiedono alte prestazioni.
+</p>
+<h3>1.Struttura base di un programma C</h3>
+<pre><code>#include &lt;stdio.h&gt;
+int main() {
+    printf("Ciao mondo!");
+    return 0;
+</code></pre>
+<p class="muted">
+      Tutti i programmi in C iniziano dalla funzione <code>main()</code>.  
+      Il comando <code>#include</code> serve per importare librerie,  
+      mentre <code>printf()</code> stampa testo sullo schermo.
+    </p>
+  </div>
+</section>
+
+<section class="card">
+  <h3>2. Variabili e tipi di dato</h3>
+<p>Il C offre tipi di dati fondamentali (come int per gli interi, char per i caratteri e float/double per i numeri con virgola mobile) per gestire i dati all'interno del programma.</p>
+  <pre><code>int eta = 18;
+float peso = 65.5;
+char iniziale = 'A';</code></pre>
+</section>
+
+<section class="card">
+  <h3>3. Cicli</h3>
+<p>
+Le strutture cicliche permettono di ripetere un blocco di codice più volte, fino a quando una determinata condizione non viene più soddisfatta. I principali tipi di cicli sono il for, il while e il do-while. 
+1. Ciclo for = si onosce in anticipo il numero di volte in cui si deve esegure il codice <br>
+2. Ciclo While = il codice si ripete finché una condizione rimane vera.<br>
+3. Cilo Do While = garantisce che il blocco di codice venga eseguito almeno una volta, poiché la condizione viene verificata solo alla fine della prima iterazione
+</p>
+  <pre><code>for (int i = 0; i &lt; 5; i++) {
+    printf("%d ", i);
+}</code></pre>
+</section>
+
+<section class="card">
+  <h3>4. Funzioni</h3>
+<p>
+Nel linguaggio C, una funzione è un blocco di codice che esegue un compito specifico e che può essere richiamato da altre parti del programma. L'uso delle funzioni aiuta a organizzare il codice, a renderlo più leggibile e a promuovere il riutilizzo del codice stesso. Ogni programma C deve avere almeno una funzione, chiamata main(), che è il punto di partenza dell'esecuzione.
+</p>
+  <pre><code>int somma(int a, int b) {
+    return a + b;
+}</code></pre>
+</section>
+{% endblock %}
